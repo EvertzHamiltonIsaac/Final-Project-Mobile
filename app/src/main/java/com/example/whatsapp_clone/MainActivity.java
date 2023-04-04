@@ -1,15 +1,23 @@
 package com.example.whatsapp_clone;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.whatsapp_clone.Adapters.FragmentsAdapter;
+import com.example.whatsapp_clone.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+
+        binding.viewpager.setAdapter(new FragmentsAdapter(getSupportFragmentManager()));
+        binding.tablayaout.setupWithViewPager(binding.viewpager);
+
     }
+
 }
