@@ -2,7 +2,9 @@ package com.example.whatsapp_clone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.whatsapp_clone.databinding.ActivityChatDetailBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +32,14 @@ public class ChatDetailActivity extends AppCompatActivity {
 
         binding.userName.setText(userName);
         Picasso.get().load(profilepic).placeholder(R.drawable.user).into(binding.profileImage);
+
+        binding.backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChatDetailActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
