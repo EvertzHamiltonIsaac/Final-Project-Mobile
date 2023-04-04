@@ -4,21 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:background="@color/MintCream"
+    android:gravity="center"
     android:orientation="vertical"
+    android:padding="9dp"
     tools:context=".SignInActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="356dp"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="172dp"
-            android:layout_height="172dp"
+            android:layout_width="137dp"
+            android:layout_height="145dp"
             app:srcCompat="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/Timberwolf"
+            android:ems="10"
+            android:hint="UserName:"
+            android:inputType="textPersonName"
+            android:padding="9dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/Timberwolf"
+            android:ems="10"
+            android:hint="Email:"
+            android:inputType="textEmailAddress"
+            android:padding="9dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="5dp"
+            android:gravity="right"
+            android:padding="3dp"
+            android:text="Login with another acount" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/MediumStateBlue"
+            android:text="Sign Up"
+            android:textColor="@color/MintCream" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/MediumStateBlue"
+                android:drawableLeft="@drawable/google"
+                android:text="Google"
+                android:textColor="@color/MintCream"
+                app:iconPadding="8dp" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/MediumStateBlue"
+                android:drawableLeft="@drawable/facebook"
+                android:text="Facebook"
+                android:textColor="@color/MintCream" />
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
