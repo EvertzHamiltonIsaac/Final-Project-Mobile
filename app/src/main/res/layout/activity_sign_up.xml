@@ -114,7 +114,17 @@
                 android:text="Facebook"
                 android:textColor="@color/MintCream"
                 app:cornerRadius="5dp" />
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:padding="3dp"
+        android:text="Sign Up with Phone" />
 </LinearLayout>
