@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatsapp_clone.Models.Users;
 import com.example.whatsapp_clone.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,12 +37,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Users users = list.get(position);
+        Picasso.get() .load(users.getProfilepic()).placeholder(R.drawable.user).into(holder.image);
+        holder.userName.setText(users.getUserName());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
