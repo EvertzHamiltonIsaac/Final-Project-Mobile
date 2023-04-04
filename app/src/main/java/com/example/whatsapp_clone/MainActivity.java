@@ -2,6 +2,7 @@ package com.example.whatsapp_clone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
