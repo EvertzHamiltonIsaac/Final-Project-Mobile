@@ -33,6 +33,14 @@ public class SignInActivity extends AppCompatActivity {
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Login to your account");
 
+        binding.txtViewOtherAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
+                startActivity(i);
+            }
+        });
+
         binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

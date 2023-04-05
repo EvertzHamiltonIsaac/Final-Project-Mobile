@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -37,6 +38,14 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(SignUpActivity.this);
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("We are creating your account");
+
+        binding.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SignUpActivity.this, SignInActivity.class);
+                startActivity(i);
+            }
+        });
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
