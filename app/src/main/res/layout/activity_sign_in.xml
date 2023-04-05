@@ -5,7 +5,7 @@
     android:id="@+id/margin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/MintCream"
+    android:background="@color/MediumStateBlue"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="9dp"
@@ -13,16 +13,33 @@
 
     <LinearLayout
         android:layout_width="356dp"
-        android:layout_height="wrap_content"
+        android:layout_height="607dp"
         android:layout_marginTop="60dp"
+        android:background="@color/MediumStateBlue"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="15dp">
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="137dp"
             android:layout_height="145dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/round_shape"
             app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/nameApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/barlow_extrabold"
+            android:gravity="right"
+            android:padding="3dp"
+            android:text="Chat Pad"
+            android:textColor="@color/MintCream"
+            android:textSize="40sp" />
 
         <EditText
             android:id="@+id/editTxt_Email"
@@ -30,9 +47,11 @@
             android:layout_height="45dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/Timberwolf"
+            android:background="@drawable/bg_et_message"
+            android:drawableLeft="@drawable/email_input"
+            android:drawablePadding="8dp"
             android:ems="10"
-            android:hint="Email/Phone"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="8dp"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -43,7 +62,9 @@
             android:layout_height="45dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/Timberwolf"
+            android:background="@drawable/bg_et_message"
+            android:drawableLeft="@drawable/pass_input"
+            android:drawablePadding="8dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
@@ -58,62 +79,53 @@
             android:layout_marginTop="5dp"
             android:gravity="right"
             android:padding="3dp"
-            android:text="Sign In with other Account" />
+            android:text="Sign In with other Account"
+            android:textColor="@color/MintCream"
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/btn_SignIn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_width="316dp"
+            android:layout_height="58dp"
             android:layout_marginTop="10dp"
-            android:backgroundTint="@color/MediumStateBlue"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/MintCream"
             android:padding="15dp"
             android:text="Sign In"
-            android:textColor="@color/MintCream" />
+            android:textColor="@color/OxfordBlue"
+            app:cornerRadius="50dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="109dp"
+            android:layout_height="79dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_Google"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="4dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/MediumStateBlue"
+                android:backgroundTint="@color/MintCream"
                 android:drawableLeft="@drawable/google"
-                android:padding="15dp"
-                android:text="Google"
-                android:textColor="@color/MintCream"
-                app:cornerRadius="5dp"
-                app:iconPadding="8dp" />
+                android:padding="12dp"
+                android:textColor="@color/OxfordBlue"
+                app:cornerRadius="100dp" />
 
             <Button
                 android:id="@+id/btn_Facebook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/MediumStateBlue"
+                android:backgroundTint="@color/MintCream"
                 android:drawableLeft="@drawable/facebook"
-                android:padding="15dp"
-                android:text="Facebook"
-                android:textColor="@color/MintCream"
-                app:cornerRadius="5dp" />
+                android:textColor="@color/OxfordBlue"
+                app:cornerRadius="100dp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtView_SignPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
-        android:padding="3dp"
-        android:text="Sign In with Phone" />
 </LinearLayout>
