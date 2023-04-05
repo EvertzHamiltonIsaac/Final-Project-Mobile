@@ -1,23 +1,23 @@
 package com.example.whatsapp_clone.Models;
 
-public class Message {
+public class MessageModel {
 
     String uid;
     String message;
     Long timestamp;
 
-    public Message(String uid, String message, Long timestamp) {
+    public MessageModel(String uid, String message, Long timestamp) {
         this.uid = uid;
         this.message = message;
         this.timestamp = timestamp;
     }
 
-    public Message(String uid, String message) {
+    public MessageModel(String uid, String message) {
         this.uid = uid;
         this.message = message;
     }
 
-    public Message(){}
+    public MessageModel(){}
 
     public String getUid() {
         return uid;

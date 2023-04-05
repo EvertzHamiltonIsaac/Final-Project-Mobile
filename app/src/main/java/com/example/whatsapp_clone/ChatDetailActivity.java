@@ -1,15 +1,23 @@
 package com.example.whatsapp_clone;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 
+import com.example.whatsapp_clone.Adapters.ChatAdapter;
+import com.example.whatsapp_clone.Models.MessageModel;
 import com.example.whatsapp_clone.databinding.ActivityChatDetailBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class ChatDetailActivity extends AppCompatActivity {
 
@@ -26,7 +34,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
 
-        String sendId = auth.getUid();
+        final String sendId = auth.getUid();
         String recieveId = getIntent().getStringExtra("userId");
         String userName = getIntent().getStringExtra("userName");
         String profilepic = getIntent().getStringExtra("profilepic");
@@ -42,5 +50,43 @@ public class ChatDetailActivity extends AppCompatActivity {
             }
         });
 
+        final ArrayList<MessageModel> messageArrayList = new ArrayList<>();
+        final ChatAdapter chatAdapter = new ChatAdapter(messageArrayList, this);
+
+        binding.chatRecyclerView.setAdapter(chatAdapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        binding.chatRecyclerView.setLayoutManager(linearLayoutManager);
+
+        final String senderRoom = sendId + recieveId;
+        final String reiverRoom = recieveId + sendId;
+        binding.send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = binding.etMessage.getText().toString();
+                final MessageModel model = new MessageModel(sendId, message);
+                model.setTimestamp(new Date().getTime());
+
+                binding.etMessage.setText("");
+
+                database.getReference().child("chats")
+                        .child(senderRoom)
+                        .push()
+                        .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                database.getReference().child("chats")
+                                        .child(reiverRoom)
+                                        .push()
+                                        .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+
+                                            }
+                                        });
+                            }
+                        });
+            }
+        });
     }
 }
