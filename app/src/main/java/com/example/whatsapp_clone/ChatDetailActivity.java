@@ -1,5 +1,6 @@
 package com.example.whatsapp_clone;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -13,11 +14,16 @@ import com.example.whatsapp_clone.Models.MessageModel;
 import com.example.whatsapp_clone.databinding.ActivityChatDetailBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import okhttp3.internal.cache.DiskLruCache;
 
 public class ChatDetailActivity extends AppCompatActivity {
 
@@ -54,12 +60,32 @@ public class ChatDetailActivity extends AppCompatActivity {
         final ChatAdapter chatAdapter = new ChatAdapter(messageArrayList, this);
 
         binding.chatRecyclerView.setAdapter(chatAdapter);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         binding.chatRecyclerView.setLayoutManager(linearLayoutManager);
 
         final String senderRoom = sendId + recieveId;
         final String reiverRoom = recieveId + sendId;
+
+        database.getReference().child("chats")
+                        .child(senderRoom)
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                messageArrayList.clear();
+
+                                for(DataSnapshot snapshot1 : snapshot.getChildren()){
+                                    MessageModel model = snapshot1.getValue(MessageModel.class);
+
+                                    messageArrayList.add(model);
+                                }
+
+                                chatAdapter.notifyDataSetChanged();
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
         binding.send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
