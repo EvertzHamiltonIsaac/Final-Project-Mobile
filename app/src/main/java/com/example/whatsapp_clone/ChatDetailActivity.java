@@ -24,6 +24,7 @@ public class ChatDetailActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
         database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         String sendId = auth.getUid();
         String recieveId = getIntent().getStringExtra("userId");
