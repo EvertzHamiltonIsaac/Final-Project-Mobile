@@ -30,8 +30,8 @@
 
         <ImageView
             android:id="@+id/profile_image"
-            android:layout_width="91dp"
-            android:layout_height="98dp"
+            android:layout_width="72dp"
+            android:layout_height="63dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -104,7 +104,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_gravity="right"
             android:layout_margin="10dp"
             android:background="@drawable/btn_bg"
