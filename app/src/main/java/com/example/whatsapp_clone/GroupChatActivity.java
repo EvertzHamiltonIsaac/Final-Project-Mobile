@@ -32,7 +32,7 @@ public class GroupChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityGroupChatBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_group_chat);
+        setContentView(binding.getRoot());
 
         getSupportActionBar().hide();
         binding.backArrow.setOnClickListener(new View.OnClickListener() {
