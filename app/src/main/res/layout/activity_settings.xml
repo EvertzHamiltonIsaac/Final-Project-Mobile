@@ -36,8 +36,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
+            app:civ_border_color="#FFF"
+            app:civ_border_width="2dp"
             android:src="@drawable/user"
-            app:tint="#FFFFFF" />
+            />
 
         <ImageView
             android:id="@+id/plus"
@@ -46,7 +48,9 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="-30dp"
             android:background="@drawable/round_shape"
-            app:srcCompat="@drawable/plus" />
+            app:srcCompat="@drawable/plus"
+
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,9 +102,9 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_gravity="right"
             android:layout_margin="10dp"
             android:background="@drawable/btn_bg"
